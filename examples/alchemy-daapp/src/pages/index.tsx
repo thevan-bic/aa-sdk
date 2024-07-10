@@ -1,13 +1,8 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import dynamic from "next/dynamic";
+import {send} from "../client";
 
-const RootScreen = dynamic(
-  () => {
-    return import("~/surfaces/root/RootScreen");
-  },
-  { ssr: false }
-);
+
 
 const Root: NextPage = () => {
   return (
@@ -18,7 +13,7 @@ const Root: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <RootScreen />
+          <button onClick={()=> send('0x', 1)}>Test</button>
       </main>
     </>
   );
